@@ -3,6 +3,7 @@ interface Props {
     href: string;
     rel?: string;
 }
+const { href, rel } = Astro.props as Props;
 ---
 <style is:global>
     @media only screen and (max-width: 600px) {
@@ -33,4 +34,6 @@ interface Props {
         background: #ffd400;
     }
 </style>
-<a href={Astro.props.href} rel={Astro.props.rel} class="navlink"><slot/></a>
+<a href={href} rel={rel} class="navlink">
+  <slot/>
+</a>
