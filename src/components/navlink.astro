@@ -3,7 +3,7 @@ interface Props {
     href: string;
     rel?: string;
 }
-const { href, rel } = Astro.props as Props;
+const { href, rel } = Astro.props;
 ---
 <style is:global>
     @media only screen and (max-width: 600px) {
