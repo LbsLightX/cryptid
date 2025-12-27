@@ -13,7 +13,7 @@ html, body {
 
 body {
     background: #121313;
-    background-image: url("/images/gradiento.gif");
+    background-image: url("/cryptid/images/gradiento.gif");
     background-image: linear-gradient(to bottom, #444444, #121313);
     /* background-image: url("/images/gradiento.gif"); */
     background-repeat: repeat-x;
@@ -41,7 +41,7 @@ body {
     border: 1px solid black;
     border-top: none;
     margin: 0px;
-    background: url("/images/tile.png");
+    background: url("/cryptid/images/tile.png");
     background: repeating-conic-gradient(rgba(255, 255, 255, 0.0156862745) 0% 25%, rgba(132, 132, 132, 0.10980392156) 25% 50%) 50% / 64px 64px;
     background-position: 0 0, 0 32px, 32px -32px, -32px 0px;
     z-index: 1;
