@@ -12,6 +12,9 @@ html, body {
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  
     background: #121313;
     background-image: url("/cryptid/images/gradiento.gif");
     background-image: linear-gradient(to bottom, #444444, #121313);
