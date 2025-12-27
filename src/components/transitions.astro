@@ -1,0 +1,110 @@
+---
+import type { TransitionAnimationPair, TransitionDirectionalAnimations } from "astro";
+import { ViewTransitions } from "astro:transitions";
+export const easing = "cubic-bezier(0, 0.55, 0.45, 1)"
+export const anim: TransitionAnimationPair = {
+    old: {
+        name: 'contentOut',
+        duration: '0.5s',
+        easing, // outcirc
+        fillMode: 'forwards',
+    },
+    new: {
+        name: 'contentIn',
+        duration: '1s',
+        // delay: '1s',
+        easing,
+        fillMode: 'forwards',
+    }
+};
+
+export const guh: TransitionAnimationPair = {
+    old: {
+        name: 'bgOut',
+        duration: '0.5s',
+        easing, // outquint
+        fillMode: 'forwards',
+    },
+    new: {
+        name: 'bgIn',
+        duration: '1s',
+        // delay: '1s',
+        easing,
+        fillMode: 'forwards',
+    }
+};
+
+export const pageTransition: TransitionDirectionalAnimations = {
+    forwards: anim,
+    backwards: anim,
+};
+
+export const innerTransition: TransitionDirectionalAnimations = {
+    forwards: guh,
+    backwards: guh,
+};
+
+// These will use -24px as the content vertical padding is 12px and 12*2=24
+---
+<style>
+    @keyframes contentIn {
+        0% {
+            transform: translateY(calc(-200% - 24px));
+            opacity: 0;
+        }
+        50% {
+            transform: translateY(calc(-200% - 24px));
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    @keyframes contentOut {
+        from {
+            /* height: 100%; */
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            /* height: 0%; */
+            transform: translateY(calc(-200% - 24px));
+            opacity: 0;
+
+        }
+    }
+
+    @keyframes bgIn {
+        0% {
+            transform: translateY(-100%);
+            /* opacity: 0; */
+
+        }
+        50% {
+            transform: translateY(-100%);
+            /* opacity: 0; */
+
+        }
+        100% {
+            transform: translateY(0);
+            /* opacity: 1; */
+
+        }
+    }
+    @keyframes bgOut {
+        from {
+            /* height: 100%; */
+            transform: translateY(0);
+            /* opacity: 1; */
+
+        }
+        to {
+            /* height: 0%; */
+            transform: translateY(-100%);
+            /* opacity: 0; */
+
+        }
+    }
+</style>
+<ViewTransitions/>

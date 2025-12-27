@@ -1,0 +1,16 @@
+<style is:global>
+	.logo {
+		font-size: 0;
+        vertical-align: bottom;
+	}
+</style>
+<a id="logo-link" href="/">
+    <img src="/images/aagaming.png" class="logo" width="257" height="62" alt="aagaming" />
+</a>
+<script is:inline>
+    if (navigator.userAgent.indexOf("Nintendo WiiU") !== -1) {
+        const logo = document.getElementById("logo-link");
+        logo.href = "/wiiu?go=1"
+        logo.dataset.astroReload = true;
+    }
+</script>

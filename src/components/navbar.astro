@@ -1,0 +1,25 @@
+<style is:global>
+
+    .nav {
+        text-align: right;
+        display: block;
+        color: #4c4c4c;
+        font-size: 0px;
+    }
+
+    /* Exclude the float from old browsers because they implement float weirdly */
+    @media only all {
+        .nav {
+            float: right;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .nav {
+            float: none;
+        }
+    }
+</style>
+<nav class="nav">
+    <slot/>
+</nav>

@@ -1,0 +1,37 @@
+---
+import "./global.css"
+import Logo from "./components/logo.astro";
+import Navbar from "./components/navbar.astro"
+import NavLink from "./components/navlink.astro"
+import Transitions, { innerTransition, pageTransition } from "./components/transitions.astro";
+
+const {frontmatter} = Astro.props;
+---
+
+<!DOCTYPE html5>
+<html lang="en" dir="ltr">
+	<head>
+		<title>{!frontmatter.hidePageTitle && frontmatter.title ? `${frontmatter.title} - aagaming` : "aagaming"}</title>
+		{frontmatter.description && <meta name="description" content={frontmatter.description}>}
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<Transitions/>
+	</head>
+	<body>
+		<div id="header" transition:persist transition:animate="none">
+			<Logo/>
+			<Navbar>
+				<NavLink href="/projects">projects</NavLink>
+				<NavLink href="/code">code</NavLink>
+				<NavLink href="/contact">contact</NavLink>
+				{/* <NavLink href="https://shrimple.aagaming.me/@aa" rel="me">fedi</NavLink> */}
+			</Navbar>
+		</div>
+		<div id="body" transition:animate={innerTransition}>
+			<div>
+				{frontmatter.title && <h1>{frontmatter.title}</h1>}
+				<slot/>
+			</div>
+		</div>
+	</body>
+</html>

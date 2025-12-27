@@ -1,0 +1,36 @@
+---
+interface Props {
+    href: string;
+    rel?: string;
+}
+---
+<style is:global>
+    @media only screen and (max-width: 600px) {
+        .navlink {
+            border-left: none !important;
+        }
+    }
+
+    .navlink {
+        font-size: 14px;
+        padding: 0px 10px;
+        border-left: 1px solid #6c6c6c;
+        color: #ffd400;
+        text-decoration: none;
+    }
+    /* nav p {
+        color: #6c6c6c;
+        font-size: 14px;
+        margin-top: 4px;
+        padding-right: 12px;
+    } */
+    .navlink:first-child {
+        border-left: none;
+    }
+    .navlink:hover {
+        text-decoration: none;
+        color: black;
+        background: #ffd400;
+    }
+</style>
+<a href={Astro.props.href} rel={Astro.props.rel} class="navlink"><slot/></a>
